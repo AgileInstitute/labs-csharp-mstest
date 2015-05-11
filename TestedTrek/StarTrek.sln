@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarTrekWebGadgets", "StarTrekWebGadgets\StarTrekWebGadgets.csproj", "{D3BAF628-8D76-4665-88C6-EC0A18F9EAF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarTrek", "StarTrek\StarTrek.csproj", "{644AB580-E1E7-4E0B-A925-E36F18EFB2BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarTrekConsoleApp", "StarTrekConsoleApp\StarTrekConsoleApp.csproj", "{924EF5BA-5B08-4EE1-AC92-3BA78C620283}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTests", "MSTests\MSTests.csproj", "{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CFD58B53-350D-4A12-A372-5DE575A57B4F}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		StarTrek.vsmdi = StarTrek.vsmdi
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = StarTrek.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3BAF628-8D76-4665-88C6-EC0A18F9EAF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BAF628-8D76-4665-88C6-EC0A18F9EAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3BAF628-8D76-4665-88C6-EC0A18F9EAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3BAF628-8D76-4665-88C6-EC0A18F9EAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644AB580-E1E7-4E0B-A925-E36F18EFB2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644AB580-E1E7-4E0B-A925-E36F18EFB2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644AB580-E1E7-4E0B-A925-E36F18EFB2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644AB580-E1E7-4E0B-A925-E36F18EFB2BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924EF5BA-5B08-4EE1-AC92-3BA78C620283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924EF5BA-5B08-4EE1-AC92-3BA78C620283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924EF5BA-5B08-4EE1-AC92-3BA78C620283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924EF5BA-5B08-4EE1-AC92-3BA78C620283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
