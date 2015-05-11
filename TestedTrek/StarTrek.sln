@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarTrek", "StarTrek\StarTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarTrekConsoleApp", "StarTrekConsoleApp\StarTrekConsoleApp.csproj", "{924EF5BA-5B08-4EE1-AC92-3BA78C620283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTests", "MSTests\MSTests.csproj", "{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTests", "Tests\MSTests.csproj", "{9398B6B0-7194-42AD-9C20-4A7AEC4A5FBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CFD58B53-350D-4A12-A372-5DE575A57B4F}"
 	ProjectSection(SolutionItems) = preProject
