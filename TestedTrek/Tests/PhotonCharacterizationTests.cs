@@ -26,7 +26,7 @@ public class PhotonCharacterizationTests {
     [TestMethod]
     public void NotifiedIfNoTorpedoesRemain() {
         game.Torpedoes = 0;
-        context.SetValueForTesting("target", new StubKlingon(2000, 200));
+        context.SetValueForTesting("target", new Klingon(2000, 200));
         game.FireWeapon(context);
         Assert.AreEqual("No more photon torpedoes! || ",
             context.GetAllOutput());
@@ -35,7 +35,7 @@ public class PhotonCharacterizationTests {
     [TestMethod]
     public void TorpedoMissesDueToRandomFactors() {
         int distanceWhereRandomFactorsHoldSway = 2500;
-        context.SetValueForTesting("target", new StubKlingon(distanceWhereRandomFactorsHoldSway, 200));
+        context.SetValueForTesting("target", new Klingon(distanceWhereRandomFactorsHoldSway, 200));
         Game.generator = new StubRandom(); // without this the test would often fail
         game.FireWeapon(context);
         Assert.AreEqual("Torpedo missed Klingon at 2500 sectors... || ",
@@ -46,7 +46,7 @@ public class PhotonCharacterizationTests {
     [TestMethod]
     public void TorpedoMissesDueToDistanceAndCleverKlingonEvasiveActions() {
         int distanceWhereTorpedoesAlwaysMiss = 3500;
-        context.SetValueForTesting("target", new StubKlingon(distanceWhereTorpedoesAlwaysMiss, 200));
+        context.SetValueForTesting("target", new Klingon(distanceWhereTorpedoesAlwaysMiss, 200));
         game.FireWeapon(context);
         Assert.AreEqual("Torpedo missed Klingon at 3500 sectors... || ",
             context.GetAllOutput());
@@ -68,7 +68,7 @@ public class PhotonCharacterizationTests {
 
     [TestMethod]
     public void TorpedoDamagesKlingon() {
-        context.SetValueForTesting("target", new StubKlingon(500, 2000));
+        context.SetValueForTesting("target", new Klingon(500, 2000));
         Game.generator = new StubRandom();
         game.FireWeapon(context);
         Assert.AreEqual("Photons hit Klingon at 500 sectors with 825 units || Klingon has 1175 remaining || ",

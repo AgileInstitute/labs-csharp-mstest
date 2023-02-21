@@ -15,6 +15,7 @@ namespace Untouchables {
             Game game = new Game();
             game.FireWeapon(wg);
             
+            Console.Write("Press Enter to quit: ");
             Console.ReadLine();
         }
     }

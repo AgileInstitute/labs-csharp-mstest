@@ -3,12 +3,14 @@
 public class Klingon {
 	private int distance;
 	private int energy;
-	
-	public Klingon() {
-		Random x = new Random();
-		distance = 100 + Game.Rnd(4000);
-		energy = 1000 + Game.Rnd(2000);
-		
+
+	public Klingon(int distance, int energy = 200)
+	{
+		this.distance = distance;
+		this.energy = energy;
+	}
+	public Klingon() : 
+		this(100 + Game.Rnd(4000), 1000 + Game.Rnd(2000)) {
 	}
 
 	public virtual int Distance() {
@@ -24,6 +26,7 @@ public class Klingon {
 	}
 
 	public virtual void Delete() {
+		// does nothing...yet!
 	}
 
 }

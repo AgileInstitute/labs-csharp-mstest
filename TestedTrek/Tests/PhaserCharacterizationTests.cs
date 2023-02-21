@@ -32,7 +32,7 @@ public class PhaserCharacterizationTests {
         // delete the following line at your own peril!
         // some (not all) reasonable implementation refactorings could fetch and access the Klingon target earlier;
         // without a Klingon, they get a null reference exception from this test.
-        context.SetValueForTesting("target", new StubKlingon(1234));
+        context.SetValueForTesting("target", new Klingon(1234));
         
         context.SetValueForTesting("amount", (EnergyInNewGame + 1).ToString());
         game.FireWeapon(context);
@@ -45,7 +45,7 @@ public class PhaserCharacterizationTests {
         int maxPhaserRange = 4000;
         int outOfRange = maxPhaserRange + 1;
         context.SetValueForTesting("amount", "1000");
-        context.SetValueForTesting("target", new StubKlingon(outOfRange));
+        context.SetValueForTesting("target", new Klingon(outOfRange));
         game.FireWeapon(context);
         Assert.AreEqual("Klingon out of range of phasers at " + outOfRange + " sectors... || ",
             context.GetAllOutput());
@@ -70,7 +70,7 @@ public class PhaserCharacterizationTests {
         string minimalFired = "0";
         string minimalHit = "1";
         context.SetValueForTesting("amount", minimalFired);
-        context.SetValueForTesting("target", new StubKlingon(2000, 200));
+        context.SetValueForTesting("target", new Klingon(2000, 200));
         Game.generator = new StubRandom();
         game.FireWeapon(context);
         Assert.AreEqual("Phasers hit Klingon at 2000 sectors with " +
