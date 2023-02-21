@@ -1,8 +1,19 @@
 ﻿using System;
 
 public class StubRandom : Random {
-    public override int Next(int maxValue) {
-        // always return 1/2 max:  It isn't random, and that's the point!
-        return maxValue / 2;
+    private readonly int[] values;
+    private int index = 0;
+
+    public StubRandom(int[] valuesToReturnInOrder)
+    {
+        this.values = valuesToReturnInOrder;
+    } 
+    public override int Next(int maxValue)
+    {
+        return maxValue / 2; // old crappy impl
+        // int nextValue = values[index++];
+        // if (nextValue > maxValue) throw new Exception($"Oops! Stubbed return {nextValue} > {maxValue}!!!");
+
+        //return nextValue;
     }
 }

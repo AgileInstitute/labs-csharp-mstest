@@ -57,7 +57,7 @@ public class PhaserCharacterizationTests {
         StubKlingon klingon = new StubKlingon(2000, 200);
         context.SetValueForTesting("amount", "1000");
         context.SetValueForTesting("target", klingon);
-        Game.generator = new StubRandom();
+        Game.generator = new StubRandom(new int[] { 1, 2, 3, 4 });
         game.FireWeapon(context);
         Assert.AreEqual("Phasers hit Klingon at 2000 sectors with 400 units || Klingon destroyed! || ",
             context.GetAllOutput());
@@ -71,7 +71,7 @@ public class PhaserCharacterizationTests {
         string minimalHit = "1";
         context.SetValueForTesting("amount", minimalFired);
         context.SetValueForTesting("target", new Klingon(2000, 200));
-        Game.generator = new StubRandom();
+        Game.generator = new StubRandom(new int[] { 1, 2, 3, 4 });
         game.FireWeapon(context);
         Assert.AreEqual("Phasers hit Klingon at 2000 sectors with " +
             minimalHit + " units || Klingon has 199 remaining || ",
