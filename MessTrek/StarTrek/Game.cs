@@ -63,5 +63,4 @@ public class Game {
 	internal static int Rnd(int maximum) {
 		return generator.Next(maximum);
 	}
-
 }

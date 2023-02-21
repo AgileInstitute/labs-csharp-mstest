@@ -10,7 +10,7 @@ public class Klingon {
 		this.energy = energy;
 	}
 	public Klingon() : 
-		this(100 + Game.Rnd(4000), 1000 + Game.Rnd(2000)) {
+		this(100 + Game.Rnd(4500), 1000 + Game.Rnd(2000)) {
 	}
 
 	public int Distance() {
