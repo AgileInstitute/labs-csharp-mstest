@@ -6,9 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Untouchables;
 
 [TestClass]
-public class PhaserPinningTests {
+public class PhaserCharacterizationTests {
     private Game game;
-    private MockGalaxy context;
+    private StubGalaxy context;
 
     const int EnergyInNewGame = 10000;
 
@@ -20,12 +20,17 @@ public class PhaserPinningTests {
     [TestInitialize]
     public void SetUp() {
         game = new Game();
-        context = new MockGalaxy();
+        context = new StubGalaxy();
         context.SetValueForTesting("command", "phaser");
     }
 
     [TestMethod]
     public void PhasersFiredWithInsufficientEnergy() {
+        // delete the following line at your own peril!
+        // some (not all) reasonable implementation refactorings could fetch and access the Klingon target earlier;
+        // without a Klingon, they get a null reference exception from this test.
+        context.SetValueForTesting("target", new StubKlingon(1234));
+        
         context.SetValueForTesting("amount", (EnergyInNewGame + 1).ToString());
         game.FireWeapon(context);
         Assert.AreEqual("Insufficient energy to fire phasers! || ",
@@ -37,7 +42,7 @@ public class PhaserPinningTests {
         int maxPhaserRange = 4000;
         int outOfRange = maxPhaserRange + 1;
         context.SetValueForTesting("amount", "1000");
-        context.SetValueForTesting("target", new MockKlingon(outOfRange));
+        context.SetValueForTesting("target", new StubKlingon(outOfRange));
         game.FireWeapon(context);
         Assert.AreEqual("Klingon out of range of phasers at " + outOfRange + " sectors... || ",
             context.GetAllOutput());
@@ -46,10 +51,10 @@ public class PhaserPinningTests {
 
     [TestMethod]
     public void PhasersFiredKlingonDestroyed() {
-        MockKlingon klingon = new MockKlingon(2000, 200);
+        StubKlingon klingon = new StubKlingon(2000, 200);
         context.SetValueForTesting("amount", "1000");
         context.SetValueForTesting("target", klingon);
-        Game.generator = new MockRandom();
+        Game.generator = new StubRandom();
         game.FireWeapon(context);
         Assert.AreEqual("Phasers hit Klingon at 2000 sectors with 400 units || Klingon destroyed! || ",
             context.GetAllOutput());
@@ -62,8 +67,8 @@ public class PhaserPinningTests {
         string minimalFired = "0";
         string minimalHit = "1";
         context.SetValueForTesting("amount", minimalFired);
-        context.SetValueForTesting("target", new MockKlingon(2000, 200));
-        Game.generator = new MockRandom();
+        context.SetValueForTesting("target", new StubKlingon(2000, 200));
+        Game.generator = new StubRandom();
         game.FireWeapon(context);
         Assert.AreEqual("Phasers hit Klingon at 2000 sectors with " +
             minimalHit + " units || Klingon has 199 remaining || ",

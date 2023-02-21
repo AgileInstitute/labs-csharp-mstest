@@ -77,10 +77,10 @@ public class Game {
 	}
 
 
-    // note we made generator public in order to mock it
+    // note we made generator public in order to stub it in tests;
     // it's ugly, but it's telling us something about our *design!* ;-)
 	public static Random generator = new Random();
-	private static int Rnd(int maximum) {
+	internal static int Rnd(int maximum) {
 		return generator.Next(maximum);
 	}
 

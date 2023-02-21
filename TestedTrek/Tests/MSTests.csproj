@@ -44,9 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MockGalaxy.cs" />
-    <Compile Include="MockKlingon.cs" />
-    <Compile Include="MockRandom.cs" />
+    <Compile Include="StubGalaxy.cs" />
+    <Compile Include="StubKlingon.cs" />
+    <Compile Include="StubRandom.cs" />
     <Compile Include="PhaserCharacterizationTests.cs" />
     <Compile Include="PhotonCharacterizationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
