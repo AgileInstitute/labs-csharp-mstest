@@ -33,12 +33,33 @@ public class PhotonCharacterizationTests {
     }
 
     [TestMethod]
-    public void TorpedoMissesDueToRandomFactors() {
+    public void TorpedoMissesDistantKlingon_DueToRandomNumber_LuckyKlingon() {
         int distanceWhereRandomFactorsHoldSway = 2500;
+        int randomValueNudgingTheTorpedoOffCourse = 2;
         context.SetValueForTesting("target", new Klingon(distanceWhereRandomFactorsHoldSway, 200));
-        Game.generator = new StubRandom(new int[] { 2 }); // without this the test would often fail
+        Game.generator = new StubRandom(new int[] { randomValueNudgingTheTorpedoOffCourse });
         game.FireWeapon(context);
         Assert.AreEqual("Torpedo missed Klingon at 2500 sectors... || ",
+            context.GetAllOutput());
+        Assert.AreEqual(7, game.Torpedoes);
+    }
+    
+    [TestMethod]
+    public void TorpedoDoesNOTMissDistantKlingon_DueToRandomNumber_UnluckyKlingon() {
+        int maxPhotonRange = 3499;
+        int randomValueThatDoesNotAffectCourse = 0;
+        int defaultTorpedoDamage = 800;
+        int randomDamage = 3;
+        int totalDamage = defaultTorpedoDamage + randomDamage;
+        context.SetValueForTesting("target",
+            new Klingon(maxPhotonRange, totalDamage));
+        Game.generator = new StubRandom(
+            new int[] { randomValueThatDoesNotAffectCourse, randomDamage });
+        
+        game.FireWeapon(context);
+        
+        Assert.AreEqual(
+            $"Photons hit Klingon at {maxPhotonRange} sectors with {totalDamage} units || Klingon destroyed! || ",
             context.GetAllOutput());
         Assert.AreEqual(7, game.Torpedoes);
     }
@@ -46,9 +67,13 @@ public class PhotonCharacterizationTests {
     [TestMethod]
     public void TorpedoMissesDueToDistanceAndCleverKlingonEvasiveActions() {
         int distanceWhereTorpedoesAlwaysMiss = 3500;
-        context.SetValueForTesting("target", new Klingon(distanceWhereTorpedoesAlwaysMiss, 200));
+        context.SetValueForTesting("target", new Klingon(distanceWhereTorpedoesAlwaysMiss, 1234));
+        Game.generator = new StubRandom(
+            new int[] { 3, 45 }); // stub added just to avoid real Random - values mostly harmless
+        
         game.FireWeapon(context);
-        Assert.AreEqual("Torpedo missed Klingon at 3500 sectors... || ",
+        
+        Assert.AreEqual($"Torpedo missed Klingon at {distanceWhereTorpedoesAlwaysMiss} sectors... || ",
             context.GetAllOutput());
         Assert.AreEqual(7, game.Torpedoes);
     }
@@ -58,7 +83,9 @@ public class PhotonCharacterizationTests {
         StubKlingon klingon = new StubKlingon(500, 200);
         context.SetValueForTesting("target", klingon);
         Game.generator = new StubRandom(new int[] { 2, 25 });
+        
         game.FireWeapon(context);
+        
         Assert.AreEqual("Photons hit Klingon at 500 sectors with 825 units || Klingon destroyed! || ",
             context.GetAllOutput());
         Assert.AreEqual(7, game.Torpedoes);

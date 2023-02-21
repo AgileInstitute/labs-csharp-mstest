@@ -28,7 +28,7 @@ public class PhaserCharacterizationTests {
     }
 
     [TestMethod]
-    public void PhasersFiredWithInsufficientEnergy() {
+    public void PhasersNotFiredWithInsufficientEnergy() {
         // delete the following line at your own peril!
         // some (not all) reasonable implementation refactorings could fetch and access the Klingon target earlier;
         // without a Klingon, they get a null reference exception from this test.
@@ -44,40 +44,65 @@ public class PhaserCharacterizationTests {
     public void PhasersFiredWhenKlingonOutOfRange_AndEnergyExpendedAnyway() {
         int maxPhaserRange = 4000;
         int outOfRange = maxPhaserRange + 1;
-        context.SetValueForTesting("amount", "1000");
+        int amountToFire = 1000;
+        context.SetValueForTesting("amount", $"{amountToFire}");
         context.SetValueForTesting("target", new Klingon(outOfRange));
+        
         game.FireWeapon(context);
-        Assert.AreEqual("Klingon out of range of phasers at " + outOfRange + " sectors... || ",
+        
+        Assert.AreEqual($"Klingon out of range of phasers at {outOfRange} sectors... || ",
             context.GetAllOutput());
-        Assert.AreEqual(EnergyInNewGame - 1000, game.EnergyRemaining());
+        Assert.AreEqual(EnergyInNewGame - amountToFire, game.EnergyRemaining());
     }
 
     [TestMethod]
     public void PhasersFiredKlingonDestroyed() {
-        StubKlingon klingon = new StubKlingon(2000, 200);
-        context.SetValueForTesting("amount", "1000");
+        StubKlingon klingon = new StubKlingon(2000, 301);
+        int amountToFire = 1000;
+        context.SetValueForTesting("amount", $"{amountToFire}");
         context.SetValueForTesting("target", klingon);
-        Game.generator = new StubRandom(new int[] { 100 });
+        Game.generator = new StubRandom(new int[] { 199 });
+
         game.FireWeapon(context);
-        Assert.AreEqual("Phasers hit Klingon at 2000 sectors with 400 units || Klingon destroyed! || ",
+        
+        Assert.AreEqual("Phasers hit Klingon at 2000 sectors with 301 units || Klingon destroyed! || ",
             context.GetAllOutput());
-        Assert.AreEqual(EnergyInNewGame - 1000, game.EnergyRemaining());
+        Assert.AreEqual(EnergyInNewGame - amountToFire, game.EnergyRemaining());
         Assert.IsTrue(klingon.DeleteWasCalled());
+    }
+    
+    [TestMethod]
+    public void PhaserDamageDisplaysKlingonRemainingEnergy() {
+        int amountToFire = 500;
+        context.SetValueForTesting("amount", $"{amountToFire}");
+        context.SetValueForTesting("target", new Klingon(2000, 3200));
+        Game.generator = new StubRandom(new int[] { 102 });
+        game.FireWeapon(context);
+        Assert.AreEqual(
+            $"Phasers hit Klingon at 2000 sectors with 148 units || Klingon has 3052 remaining || ",
+            context.GetAllOutput());
+        Assert.AreEqual(EnergyInNewGame - amountToFire, game.EnergyRemaining());
     }
 
     [TestMethod]
-    public void PhasersDamageOfZeroStillHits_AndNondestructivePhaserDamageDisplaysRemaining() {
-        string minimalFired = "0";
-        string minimalHit = "1";
-        context.SetValueForTesting("amount", minimalFired);
-        context.SetValueForTesting("target", new Klingon(2000, 200));
-        Game.generator = new StubRandom(new int[] { 100 });
+    public void PhasersDamageOfZeroStillHits_BUG31415()
+    {
+        // It's a bug!  I *ask* to fire zero, and I still hit with 1 point.
+        // Acknowledge it, log it (Bug #31415), but don't fix it yet! -- Rob
+        int minimalFired = 0;
+        int minimalHit = 1;
+
+        int maxPhaserRange = 4000;
+        int leastAmountOfRandomDamage = 0;
+        context.SetValueForTesting("amount", $"{minimalFired}");
+        context.SetValueForTesting("target", new Klingon(maxPhaserRange, 201));
+        Game.generator = new StubRandom(new int[] { leastAmountOfRandomDamage });
+        
         game.FireWeapon(context);
-        Assert.AreEqual("Phasers hit Klingon at 2000 sectors with " +
-            minimalHit + " units || Klingon has 199 remaining || ",
+        
+        Assert.AreEqual(
+            $"Phasers hit Klingon at {maxPhaserRange} sectors with {minimalHit} units || Klingon has 200 remaining || ",
             context.GetAllOutput());
-        // Isn't this also a bug?  I *ask* to fire zero, and I still hit?
-        // Acknowledge it, log it, but don't fix it yet!
     }
 
     [TestMethod]

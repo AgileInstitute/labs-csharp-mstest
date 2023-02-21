@@ -11,7 +11,7 @@ public class StubRandom : Random {
     public override int Next(int maxValue)
     {
         int nextValue = values[index++];
-        if (nextValue > maxValue) throw new Exception($"Oops! Stubbed return {nextValue} > {maxValue}!!!");
+        if (nextValue >= maxValue) throw new Exception($"Oops! Stubbed return {nextValue} >= {maxValue}!!!");
 
         return nextValue;
     }
