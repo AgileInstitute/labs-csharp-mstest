@@ -60,7 +60,7 @@ public class Game {
 	}
 
 	private static Random generator = new Random();
-	private static int Rnd(int maximum) {
+	internal static int Rnd(int maximum) {
 		return generator.Next(maximum);
 	}
 
