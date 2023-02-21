@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -75,6 +78,33 @@ public class PhaserCharacterizationTests {
             context.GetAllOutput());
         // Isn't this also a bug?  I *ask* to fire zero, and I still hit?
         // Acknowledge it, log it, but don't fix it yet!
+    }
+
+    [TestMethod]
+    public void MakeSureAPIDoes_NOT_Change_See_SampleClient_in_StarTrekConsoleApp()
+    {
+        const String requiredSignature = "public Void FireWeapon(WebGadget)";
+        bool found = false;
+
+        TypeInfo gameInfo = typeof(Game).GetTypeInfo();
+        IEnumerable<MethodInfo> methods = gameInfo.DeclaredMethods;
+        foreach (MethodInfo nextMethod in methods)
+        {
+            if (requiredSignature == Signature(nextMethod))
+                found = true;
+        }
+        
+        Assert.IsTrue(found, 
+            $"To keep SampleClient happy, Game must retain method with signature '{requiredSignature}'");
+    }
+    
+    private static string Signature(MethodInfo methodInfo)
+    {
+        String[] parameters = methodInfo.GetParameters()
+            .Select(p => String.Format("{0}",p.ParameterType.Name))
+            .ToArray();
+
+        return String.Format("{0} {1} {2}({3})", methodInfo.IsPublic ? "public" : "", methodInfo.ReturnType.Name, methodInfo.Name, String.Join(",", parameters));
     }
 
 }

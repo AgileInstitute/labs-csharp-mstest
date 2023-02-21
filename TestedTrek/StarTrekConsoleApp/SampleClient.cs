@@ -14,6 +14,7 @@ namespace Untouchables {
             WebGadget wg = new WebGadget("phaser", "1000", new Klingon());
             Game game = new Game();
             game.FireWeapon(wg);
+            
             Console.ReadLine();
         }
     }

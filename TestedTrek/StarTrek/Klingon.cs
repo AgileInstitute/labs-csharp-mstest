@@ -6,8 +6,8 @@ public class Klingon {
 	
 	public Klingon() {
 		Random x = new Random();
-		distance = 100 + x.Next(4000);
-		energy = 1000 + x.Next(2000);
+		distance = 100 + Game.Rnd(4000);
+		energy = 1000 + Game.Rnd(2000);
 		
 	}
 
