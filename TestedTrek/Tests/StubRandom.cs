@@ -10,10 +10,9 @@ public class StubRandom : Random {
     } 
     public override int Next(int maxValue)
     {
-        return maxValue / 2; // old crappy impl
-        // int nextValue = values[index++];
-        // if (nextValue > maxValue) throw new Exception($"Oops! Stubbed return {nextValue} > {maxValue}!!!");
+        int nextValue = values[index++];
+        if (nextValue > maxValue) throw new Exception($"Oops! Stubbed return {nextValue} > {maxValue}!!!");
 
-        //return nextValue;
+        return nextValue;
     }
 }
