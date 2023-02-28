@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Account\Account.csproj" />
+      <ProjectReference Include="..\LunExService\LunExService.csproj" />
     </ItemGroup>
 
 </Project>
