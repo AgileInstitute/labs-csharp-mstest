@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunExService", "LunExService\LunExService.csproj", "{CCFD3F57-923D-4665-AAAC-3475217E9ADB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountTests", "AccountTests\AccountTests.csproj", "{E0E46080-7AAA-4D15-96DD-26A40CBA3DFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account", "Account\Account.csproj", "{F09891BE-9441-4234-8A61-9587D8221F42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{CCFD3F57-923D-4665-AAAC-3475217E9ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFD3F57-923D-4665-AAAC-3475217E9ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFD3F57-923D-4665-AAAC-3475217E9ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E46080-7AAA-4D15-96DD-26A40CBA3DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E46080-7AAA-4D15-96DD-26A40CBA3DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E46080-7AAA-4D15-96DD-26A40CBA3DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E46080-7AAA-4D15-96DD-26A40CBA3DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09891BE-9441-4234-8A61-9587D8221F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09891BE-9441-4234-8A61-9587D8221F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09891BE-9441-4234-8A61-9587D8221F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09891BE-9441-4234-8A61-9587D8221F42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
