@@ -3,9 +3,9 @@
 /workspace.xml
 # Rider ignored files
 /modules.xml
+/.idea.LunExLab.iml
 /contentModel.xml
 /projectSettingsUpdater.xml
-/.idea.LunEx.iml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
