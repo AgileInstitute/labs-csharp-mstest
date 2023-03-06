@@ -1,8 +1,10 @@
-namespace GettingItWorking;
-public class MyMaths    
+namespace GettingItWorking
 {
-    public static int Square(int operand)
+    public class MyMaths
     {
-        return operand + operand;
+        public static int Square(int operand)
+        {
+            return operand + operand;
+        }
     }
 }
