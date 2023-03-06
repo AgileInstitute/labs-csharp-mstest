@@ -7,12 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd768d12-60c5-44c6-9568-fd9da17291bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GettingItWorking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GettingItWorking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GettingItWorking.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GettingItWorking.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMaths.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyMaths.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestMyMaths.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestMyMaths.cs" afterDir="false" />
-    </list>
+    <list default="true" id="bd768d12-60c5-44c6-9568-fd9da17291bb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +67,7 @@
       <updated>1677637145375</updated>
       <workItem from="1677637149259" duration="722000" />
       <workItem from="1677703672319" duration="611000" />
-      <workItem from="1678132044197" duration="574000" />
+      <workItem from="1678132044197" duration="813000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing GettingItWorking to have a solution file.&#10;So much work for one silly test that I'm gonna delete soon anyway.">
       <created>1677637735824</created>
@@ -95,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677704236509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Attempting to back away from .Net6.0 to what looks like .Net4.8(?) (no 5 available for Rider???)">
+      <created>1678132826970</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678132826970</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +121,8 @@
     <MESSAGE value="Fixing GettingItWorking to have a solution file.&#10;So much work for one silly test that I'm gonna delete soon anyway." />
     <MESSAGE value="merging?" />
     <MESSAGE value="Replaced GettingItWorking lab content with what we did in Ruby. One passing test, one failing test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaced GettingItWorking lab content with what we did in Ruby. One passing test, one failing test." />
+    <MESSAGE value="Attempting to back away from .Net6.0 to what looks like .Net4.8(?) (no 5 available for Rider???)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempting to back away from .Net6.0 to what looks like .Net4.8(?) (no 5 available for Rider???)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

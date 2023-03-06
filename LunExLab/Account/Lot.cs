@@ -1,18 +1,20 @@
-﻿namespace Accounts;
-
-public class Lot
+﻿namespace Accounts
 {
-    private int shares;
-    private long cost;
 
-    public Lot(int shares, long cost)
+    public class Lot
     {
-        this.shares = shares;
-        this.cost = cost;
-    }
+        private int shares;
+        private long cost;
 
-    public long GainAt(int currentPrice)
-    {
-        return (shares * currentPrice) - cost;
+        public Lot(int shares, long cost)
+        {
+            this.shares = shares;
+            this.cost = cost;
+        }
+
+        public long GainAt(int currentPrice)
+        {
+            return (shares * currentPrice) - cost;
+        }
     }
 }
