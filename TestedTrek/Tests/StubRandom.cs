@@ -8,10 +8,10 @@ public class StubRandom : Random {
     {
         this.values = valuesToReturnInOrder;
     } 
-    public override int Next(int maxValue)
+    public override int Next(int maxValueExclusive)
     {
         int nextValue = values[index++];
-        if (nextValue >= maxValue) throw new Exception($"Oops! Stubbed return {nextValue} >= {maxValue}!!!");
+        if (nextValue >= maxValueExclusive) throw new Exception($"Oops! Stubbed return {nextValue} >= {maxValueExclusive}!!!");
 
         return nextValue;
     }
